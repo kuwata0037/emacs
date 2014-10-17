@@ -1,0 +1,107 @@
+#+TITLE: Emacs 設定ファイル
+#+AUTHOR: kuwata0037
+#+EMAIL:  kuwata.cu@gmail.com
+
+* About
+  個人用 Emacs 設定ファイル. 
+
+* Installation
+  インストールは以下の手順で行います. 
+
+  1. リポジトリをホームディレクトリにクローン
+     #+BEGIN_SRC:
+git clone https://github.com/kuwata0037/emacs.git ~/.emacs.d/
+     #+END_SRC
+  2. クローン後, =Emacs= を起動し外部パッケージ群をインストール
+     (起動すると自動的にパッケージ群のインストールを開始)
+  3. =make= コマンドで helm ディレクトリ内に =helm-autoloads.el= を生成
+     #+BEGIN_SRC:
+cd ~/.emacs.d/packages/el-get-packages/helm
+make autoloads
+     #+END_SRC
+  4. =Emacs= を再起動
+  5. OK!
+
+* Composition
+  #+BEGIN_EXAMPLE: 
+   .emacs.d/
+   |-- init.el                  <- 設定ファイル(メイン)
+   |
+   |-- config/                  <- 分割した設定ファイル郡
+   |
+   |-- packages/                <- パッケージ関連
+   |    |-- install-list.el     <- インストール済みのリスト
+   |    |-- el-get-packages/    <- el-get からのインストールしたファイル群 (最初の読み込み時に生成)
+   |    |-- elpa-packages/      <- elpa からのインストールしたファイル群 (最初の読み込み時に生成)
+   |    `-- recipes/            <- el-get のレシピ置き場
+   |
+   `-- .history/                <- 各種履歴ファイル置き場 (最初の読み込み時に生成)
+  #+END_EXAMPLE
+  
+** init.el
+   =init.el= は,
+  - load-path の追加
+  - ELPA でのパッケージのインストール
+  - el-get でのパッケージのインストール
+  - init-loader での分割ファイルの読み込み
+   のみを行います. 
+   それ以外の設定ファイルは =config= ディレクトリ以下に配置し,
+   init-loader によって読み込みます.
+    
+** config
+   =config= ディレクトリには =init.el= 以外の設定を以下の方針に添って
+   ある程度のまとまりごとに分割して配置します.
+   - 0  番台 :: 基本的な設定
+   - 10 番台 :: auto-complete に関する設定
+   - 20 番台 :: helm に関する設定
+   - 30 番台 :: その他の拡張機能に関する設定
+   - 40 番台 :: ファイル編集に関する設定
+   - 50 番台 :: データベース, バージョン管理システムに関する設定
+   - 99 番   :: キーバインド, エイリアスの設定
+                
+** packages
+   =packages= ディレクトリには, パッケージに関するファイルなどを配置します.
+   =install-list.el= にインストールするパッケージ群を定義し,
+   インストールしたパッケージは, =el-get-packages/= か =elpa-packagese/= に保存します. 
+   基本的には el-get からインストールを行います.
+   =recipes= ディレクトリには, el-get の野良パッケージのレシピ群を保存します. 
+   
+** .history
+   =.history= ディレクトリに様々な履歴 (バックアップファイルなど) を保存します.
+   - オートセーブ
+   - バックアップ
+   - auto-complete の履歴
+   - undo の履歴
+   - 最近開いたファイルの履歴
+   - etc...
+     
+* Dependence
+  - [[http://pryrepl.org/][pry]] :: robe-mode で使用
+           
+* Keybinding
+  主に使用{する, される}キーバインドをメモ代わりにまとめます. 
+  
+  #+BEGIN_TABLE: "keybinding"
+
+  | ファイル名     | キー      | マップ        | 機能                           | 備考     |
+  |----------------+-----------+---------------+--------------------------------+----------|
+  | 30-fold.el     | C-,       | hs-minor-mode | フォールディングの切り替え     |          |
+  |                | C-c C-;   |               | すべてフォールディング         |          |
+  |                | C-c C-'   |               | すべてのフォールディングを解除 |          |
+  | 30-region.el   | C-;       | global        | 単語単位でリージョンを拡大     |          |
+  |                | C-'       |               | リージョンを縮小               |          |
+  | 30-tab.el      | <C-tab>   |               | 右のタブへ移動                 |          |
+  |                | <C-S-tab> |               | 左のタブへ移動                 |          |
+  | 30-undo.el     | M-[       |               | カーソル位置を undo            |          |
+  |                | M-]       |               | カーソル位置を redo            |          |
+  |                | C-/       |               | undo                           |          |
+  |                | C-.       |               | redo                           |          |
+  | 99-keybinds.el | C-c t     |               | 折り返りの切り替え             |          |
+  |                | C-S-f     |               | 1 単語分次へ移動               |          |
+  |                | C-S-b     |               | 1 単語分前へ移動               |          |
+  |                | s-r       |               | ファイルの再読み込み           | Mac のみ |
+  |----------------+-----------+---------------+--------------------------------+----------|
+  
+  #+END_TABLE 
+
+* Footnote

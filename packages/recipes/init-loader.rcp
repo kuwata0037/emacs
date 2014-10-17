@@ -1,0 +1,5 @@
+(:name init-loader
+       :type git
+       :url "https://gist.github.com/1021706.git"
+       :description "[My Recipes] Split management init.el."
+       )

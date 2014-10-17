@@ -1,0 +1,36 @@
+### https://raw.github.com/github/gitignore/d9cc01e935a8f0f961a3b2eed38c16d27cc07f64/Global/emacs.gitignore
+
+# -*- mode: gitignore; -*-
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
+
+# Org-mode
+.org-id-locations
+*_archive
+
+# flymake-mode
+*_flymake.*
+
+# eshell files
+/eshell/history
+/eshell/lastdir
+
+# elpa packages
+/elpa/
+
+# reftex files
+*.rel
+
+# AUCTeX auto folder
+/auto/
+
+
+### my Emacs.gitignore
+/.*/
+/packages/*packages/
