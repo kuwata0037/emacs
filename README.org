@@ -44,6 +44,7 @@ make autoloads
   - ELPA でのパッケージのインストール
   - el-get でのパッケージのインストール
   - init-loader での分割ファイルの読み込み
+   
    のみを行います. 
    それ以外の設定ファイルは =config= ディレクトリ以下に配置し,
    init-loader によって読み込みます.
