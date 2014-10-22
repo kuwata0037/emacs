@@ -53,6 +53,7 @@
 
 ;; --------------------------------------------------
 ;; 色の設定
+;; @memo : "list-color-display" で色一覧
 ;; --------------------------------------------------
 ;; color-theme
 (when (not (require 'ujelly-theme nil t))
@@ -67,21 +68,21 @@
 ;;     (t (:bold t)))
 ;;   "hl-line's my face")
 ;; (setq hl-line-face 'my/hl-line-face)
-;; (global-hl-line-mode t)
+(global-hl-line-mode t)
 
-;; ;; 括弧の対応関係のハイライト
+;; 括弧の対応関係のハイライト
 ;; (setq show-paren-delay 0)
-;; (setq show-paren-mode t)
-;; (setq show-paren-style 'expression)     ; expression は括弧内も強調表示
-;; (set-face-background 'show-paren-match-face nil)
-;; (set-face-underline 'show-paren-match-face "yellow")
+(show-paren-mode)
+(setq show-paren-style 'expression)    ; expression は括弧内も強調表示
+(set-face-background 'show-paren-match-face nil)
+(set-face-underline 'show-paren-match-face "yellow")
 
-;; ;; 選択領域のハイライト
-;; ;; (set-face-background 'region "#500")
+;; 選択領域のハイライト
+(set-face-background 'region "#500")
 
-;; ;; 無駄な行末空白を強調表示
-;; ;; (setq-default show-trailing-whitespace t)
-;; ;; (set-face-background 'trailing-whitespace "#b14770")
+;; 無駄な行末空白を強調表示
+;; (setq-default show-trailing-whitespace t)
+;; (set-face-background 'trailing-whitespace "#b14770")
 
 ;; ;; カーソル位置のシンボルのハイライト
 ;; ;; @refer : http://d.hatena.ne.jp/yuheiomori0718/20111222/1324562208
