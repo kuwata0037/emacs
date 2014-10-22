@@ -74,6 +74,10 @@
 (savehist-mode t)
 ;; ミニバッファの履歴の保存数
 (setq history-length 3000)
+;; 再起動後も履歴の引き継ぎ
+;; @refer : https://gist.github.com/kuwata0037/4470602f1b99467d108f#file-add-extended-command-history-el
+(when (not (find 'extended-command-history savehist-minibuffer-history-variables))
+    (add-to-list 'savehist-minibuffer-history-variables 'extended-command-history))
 
 
 ;; --------------------------------------------------
