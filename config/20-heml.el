@@ -1,5 +1,6 @@
 ;; --------------------------------------------------
 ;; helm
+;; @refer : http://yoshiori.github.io/blog/2013/01/30/dot-emacs-renewal/
 ;; --------------------------------------------------
 (when (require 'helm-config nil t)
   ;; 有効化
