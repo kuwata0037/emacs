@@ -12,7 +12,7 @@
 
 ;; 起動時のディスプレイサイズ
 (when window-system
-  (set-frame-height (next-frame) 47)
+  (set-frame-height (next-frame) 50)
   (set-frame-width (next-frame) 88))
 
 ;; ツールバー
@@ -46,9 +46,9 @@
 (setq display-time-24hr-format t)       ; 24時表示
 (display-time-mode t)
 
-;; バッテリー残量 (Mac 非対応)
-(when (unless (eq system-type 'darwin))
-  (display-battery-mode t))
+;; バッテリー残量
+(when (>= (string-to-number emacs-version) 24.4)
+(display-battery-mode t))
 
 
 ;; --------------------------------------------------
