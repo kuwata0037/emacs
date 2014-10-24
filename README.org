@@ -74,6 +74,7 @@ make autoloads
    - auto-complete の履歴
    - undo の履歴
    - 最近開いたファイルの履歴
+   - コマンドの履歴
    - etc...
      
 * Dependence
