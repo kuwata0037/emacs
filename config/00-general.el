@@ -45,3 +45,6 @@
 ;; ファイル名が重複してたらディレクトリ名を追加する
 (when (require 'uniquify nil t)
   (setq uniquify-buffer-name-style 'post-forward-angle-brackets))
+
+;; gz ファイルも編集可能に
+(auto-compression-mode t)
