@@ -35,7 +35,7 @@
 ;; @refer : http://blog.livedoor.jp/ooboofo3/archives/53748087.html
 (when (require 'ruby-end nil t)
   (defun my/ruby-end-hook ()
-    (abbrev-mode 1)
+    (abbrev-mode t)
     (electric-pair-mode t)
     (electric-indent-mode t)
     (electric-layout-mode t))
