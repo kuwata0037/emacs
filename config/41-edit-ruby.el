@@ -30,6 +30,16 @@
       (when (> offset 0) (forward-char offset)))))
 
 
+;; robe
+(when (and (require 'robe nil t) (executable-find "pry"))
+  (add-hook 'ruby-mode-hook 'robe-mode)
+  (autoload 'robe-mode "robe" "Code navigation, documentation lookup and completion for Ruby" t nil)
+  (autoload 'ac-robe-setup "ac-robe" "auto-complete robe" nil nil)
+  (add-hook 'robe-mode-hook 'ac-robe-setup)
+  (add-hook 'ruby-mode-hook 'robe-start)
+  )
+
+
 ;; ruby-end
 ;; @describe : 括弧の自動挿入
 ;; @refer : http://blog.livedoor.jp/ooboofo3/archives/53748087.html
@@ -66,13 +76,3 @@
                          (getenv "HOME") "/.rbenv/bin:" (getenv "PATH")))
   (setq exec-path (cons (concat (getenv "HOME") "/.rbenv/shims")
                         (cons (concat (getenv "HOME") "/.rbenv/bin") exec-path))))
-
-
-;; robe
-(when (and (require 'robe nil t) (executable-find "pry"))
-  (add-hook 'ruby-mode-hook 'robe-mode)
-  (autoload 'robe-mode "robe" "Code navigation, documentation lookup and completion for Ruby" t nil)
-  (autoload 'ac-robe-setup "ac-robe" "auto-complete robe" nil nil)
-  (add-hook 'robe-mode-hook 'ac-robe-setup)
-  (add-hook 'ruby-mode-hook 'robe-start)
-  )
