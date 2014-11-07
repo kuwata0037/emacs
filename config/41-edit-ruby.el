@@ -48,7 +48,8 @@
     (abbrev-mode t)
     (electric-pair-mode t)
     (electric-indent-mode t)
-    (electric-layout-mode t))
+    (electric-layout-mode t)
+    (ruby-end-mode t))
   (add-hook 'ruby-mode-hook 'my/ruby-end-hook)
   )
 
