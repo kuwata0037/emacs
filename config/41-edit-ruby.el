@@ -58,10 +58,9 @@
 ;; @describe : endに対応する行のハイライト
 ;; @refer : http://d.hatena.ne.jp/khiker/20071130/emacs_ruby_block
 (when (require 'ruby-block nil t)
-  (setq ruby-block-highlight-toggle t)
-  
   (defun my/ruby-block-hook ()
-    (ruby-block-mode t))
+    (ruby-block-mode t)
+    (setq ruby-block-highlight-toggle t))
   (add-hook 'ruby-mode-hook 'my/ruby-block-hook)
   )
 
