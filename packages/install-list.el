@@ -21,6 +21,9 @@
     
     ;; ruby
     ruby-end ruby-block inf-ruby robe-mode
+
+    ;; yaml
+    yaml-mode
     
     ;; other
     auto-complete flycheck tabbar zlc
