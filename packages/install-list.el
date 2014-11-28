@@ -26,7 +26,7 @@
     yaml-mode
     
     ;; other
-    auto-complete flycheck tabbar zlc
+    auto-complete expand-region flycheck tabbar zlc
 
     )
   "A list of packages to install from el-get at launch.")
