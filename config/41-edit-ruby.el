@@ -69,10 +69,16 @@
 ;; @describe : インタラクティブRubyを利用する
 ;; @refer : https://github.com/nonsequitur/inf-ruby
 (when (require 'inf-ruby nil t)
+  (defun my/inf-ruby-hook ()
+    ;; inf-ruby-mirror-mode を on に
+    (inf-ruby-minor-mode)
+    ;; rbenv への対応
+    ;; @refer : http://itiut.hatenablog.com/entry/2013/05/30/021637
+    (setenv "PATH" (concat (getenv "HOME") "/.rbenv/shims:"
+                           (getenv "HOME") "/.rbenv/bin:" (getenv "PATH")))
+    (setq exec-path (cons (concat (getenv "HOME") "/.rbenv/shims")
+                          (cons (concat (getenv "HOME") "/.rbenv/bin") exec-path)))
+    )
+  (add-hook 'ruby-mode-hook 'my/inf-ruby-hook)
   (add-hook 'after-init-hook 'inf-ruby-switch-setup)
-  ;; rbenv への対応
-  ;; @refer : http://itiut.hatenablog.com/entry/2013/05/30/021637
-  (setenv "PATH" (concat (getenv "HOME") "/.rbenv/shims:"
-                         (getenv "HOME") "/.rbenv/bin:" (getenv "PATH")))
-  (setq exec-path (cons (concat (getenv "HOME") "/.rbenv/shims")
-                        (cons (concat (getenv "HOME") "/.rbenv/bin") exec-path))))
+  )
