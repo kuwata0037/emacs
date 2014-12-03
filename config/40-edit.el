@@ -7,6 +7,22 @@
 (setq-default indent-tabs-mode nil)
 
 
+;;--------------------------------------------------
+;; electric-pair-mode
+;; @describe : 括弧の補完
+;; @refer : http://block-given.hatenablog.com/entry/2014/11/12/005657
+;;--------------------------------------------------
+;; electric-pair-mode を有効
+(electric-pair-mode t)
+(electric-indent-mode t)
+(electric-layout-mode t)
+;; 対応括弧の追加
+;; (add-to-list 'electric-pair-pairs '(?| . ?|))
+(add-to-list 'electric-pair-pairs '(?{ . ?}))
+
+(add-to-list 'electric-layout-rules '(?{ . after))
+
+
 ;; --------------------------------------------------
 ;; flychek
 ;; @refer : http://qiita.com/senda-akiha/items/cddb02cfdbc0c8c7bc2b
