@@ -118,3 +118,24 @@
   (global-set-key (kbd "C-\\") 'my/quickrun-sc)
   )
 
+
+;; --------------------------------------------------
+;; rainbow-delimiters
+;; @describe : 対応する括弧ごとに色を変える
+;; @refer : http://qiita.com/ncaq/items/5a1d102723fec11a8bff
+;; --------------------------------------------------
+(when (require 'rainbow-delimiters nil t)
+  (defun my/rainbow-delimiters-hook ()
+    (rainbow-delimiters-mode)
+    ;; 色を強調
+    (when (require 'color nil t)
+      (cl-loop
+       for index from 1 to rainbow-delimiters-max-face-count
+       do
+       (let ((face (intern (format "rainbow-delimiters-depth-%d-face" index))))
+         (cl-callf color-saturate-name (face-foreground face) 30))))
+    )
+
+  ;; (add-to-list 'rainbow-delimiters-ignore-modes 'fundamental-mode) ; helmとの干渉回避
+  (add-hook 'prog-mode-hook 'my/rainbow-delimiters-hook)
+  )

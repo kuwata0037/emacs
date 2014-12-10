@@ -26,7 +26,7 @@
     yaml-mode
     
     ;; other
-    auto-complete expand-region flycheck popwin
+    auto-complete expand-region flycheck popwin rainbow-delimiters
     quickrun smart-compile smooth-scroll tabbar zlc
 
     )
