@@ -26,8 +26,8 @@
     yaml-mode
     
     ;; other
-    auto-complete expand-region flycheck
-    smart-compile smooth-scroll tabbar zlc
+    auto-complete expand-region flycheck popwin
+    quickrun smart-compile smooth-scroll tabbar zlc
 
     )
   "A list of packages to install from el-get at launch.")

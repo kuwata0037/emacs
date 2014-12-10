@@ -98,3 +98,23 @@
   )
 
 
+;; --------------------------------------------------
+;; quickrun
+;; @refer : http://rubikitch.com/tag/emacs-quickrun-%E8%A8%AD%E5%AE%9A/
+;; @refer : http://yunojy.github.io/blog/2013/03/17/emacs-de-quickrun-or-quickrun-region/
+;; --------------------------------------------------
+(when (require 'quickrun nil t)
+  (when (require 'popwin nil t)
+    (popwin-mode)
+    (push '("*quickrun*") popwin:special-display-config)
+    )
+
+  (defun my/quickrun-sc ()
+    (interactive)
+    (if (use-region-p)
+        (quickrun :strat (region-beginning) :end (region-end))
+      (quickrun)))
+
+  (global-set-key (kbd "C-\\") 'my/quickrun-sc)
+  )
+
