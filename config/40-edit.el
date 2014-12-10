@@ -80,3 +80,21 @@
   ;;              (when (eq major-mode 'ruby-mode)
   ;;                (hs-minor-mode))))
   )
+
+
+;; --------------------------------------------------
+;; smart-complie
+;; @refer : http://america66.hatenablog.com/entry/2014/03/02/022907
+;; --------------------------------------------------
+(when (require 'smart-compile nil t)
+  (setq smart-compile-alist
+        (append
+         '(("\\.rb$" . "ruby %f"))
+         smart-compile-alist))
+  (setq compilation-window-height 15)
+
+  (define-key ruby-mode-map (kbd "C-c c") 'smart-compile)
+  (define-key ruby-mode-map (kbd "C-c C-c") (kbd "C-c c C-m"))
+  )
+
+
