@@ -27,7 +27,7 @@
     
     ;; other
     auto-complete expand-region flycheck popwin rainbow-delimiters
-    quickrun smart-compile smooth-scroll tabbar zlc
+    quickrun smart-compile smart-newline smooth-scroll tabbar zlc
 
     )
   "A list of packages to install from el-get at launch.")
