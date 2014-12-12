@@ -1,4 +1,16 @@
 ;; --------------------------------------------------
+;; ユーザ定義関数
+;; --------------------------------------------------
+(defun my/killregion-or-deletewindow ()
+  "範囲指定時に kill-region, それ以外は delete-window を行う"
+  (interactive)
+  (if (use-region-p)
+      (kill-region (region-beginning) (region-end))
+    (delete-window)))
+(global-set-key (kbd "C-w") 'my/killregion-or-deletewindow)
+
+
+;; --------------------------------------------------
 ;; キーバインド
 ;; --------------------------------------------------
 ;; 改行と同時にインデント (初期値は newline)
