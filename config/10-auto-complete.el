@@ -2,7 +2,8 @@
 ;; auto-complete
 ;; @refer : http://cx4a.org/software/auto-complete/manual.ja.html
 ;; --------------------------------------------------
-(when (require 'auto-complete-config nil t)
+(use-package auto-complete-config
+  :config
   (setq ac-delay 0.3)
   (setq ac-auto-show-menu 0.2)
   

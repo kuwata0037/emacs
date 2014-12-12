@@ -27,12 +27,14 @@
 ;; flychek
 ;; @refer : http://qiita.com/senda-akiha/items/cddb02cfdbc0c8c7bc2b
 ;; --------------------------------------------------
-(when (require 'flycheck nil t)
+(use-package flycheck
+  :config
   ;; 対応言語の設定を有効
   (add-hook 'after-init-hook #'global-flycheck-mode)
 
   ;; エラー内容をツールチップに表示
-  (when (require 'flycheck-pos-tip nil t)
+  (use-package flycheck-pos-tip
+    :config
     (eval-after-load 'flycheck
       '(custom-set-variables
         '(flycheck-display-errors-function #'flycheck-pos-tip-error-messages))))
@@ -42,7 +44,8 @@
 ;; --------------------------------------------------
 ;; fold-dwim
 ;; --------------------------------------------------
-(when (require 'fold-dwim nil t)
+(use-package fold-dwim
+  :config
   ;; フォールディングするモードを設定
   (let ((hs-minor-mode-hooks))
     (dolist (hs-minor-mode-hooks
@@ -86,7 +89,8 @@
 ;; smart-complie
 ;; @refer : http://america66.hatenablog.com/entry/2014/03/02/022907
 ;; --------------------------------------------------
-(when (require 'smart-compile nil t)
+(use-package smart-compile
+  :config
   (setq smart-compile-alist
         (append
          '(("\\.rb$" . "ruby %f"))
@@ -103,11 +107,14 @@
 ;; @refer : http://rubikitch.com/tag/emacs-quickrun-%E8%A8%AD%E5%AE%9A/
 ;; @refer : http://yunojy.github.io/blog/2013/03/17/emacs-de-quickrun-or-quickrun-region/
 ;; --------------------------------------------------
-(when (require 'quickrun nil t)
-  ;; (when (require 'popwin nil t)
-  ;;   (popwin-mode)
-  ;;   (push '("*quickrun*") popwin:special-display-config)
-  ;;   )
+(use-package quickrun
+  :config
+  (use-package popwin
+    :disabled t
+    :config
+    (popwin-mode)
+    (push '("*quickrun*") popwin:special-display-config)
+    )
   
   (defun my/quickrun-sc ()
     (interactive)
@@ -124,11 +131,13 @@
 ;; @describe : 対応する括弧ごとに色を変える
 ;; @refer : http://qiita.com/ncaq/items/5a1d102723fec11a8bff
 ;; --------------------------------------------------
-(when (require 'rainbow-delimiters nil t)
+(use-package rainbow-delimiters
+  :config
   (defun my/rainbow-delimiters-hook ()
     (rainbow-delimiters-mode)
     ;; 色を強調
-    (when (require 'color nil t)
+    (use-package color
+      :config
       (cl-loop
        for index from 1 to rainbow-delimiters-max-face-count
        do

@@ -87,6 +87,14 @@
 
 
 ;; --------------------------------------------------
+;; use-package
+;; @refer : http://qiita.com/kai2nenobu/items/5dfae3767514584f5220
+;; --------------------------------------------------
+(unless (require 'use-package nil t)
+  (defmacro use-package (&rest args)))
+
+
+;; --------------------------------------------------
 ;; 分割設定 (init-loader)
 ;; --------------------------------------------------
 (when (require 'init-loader nil t)

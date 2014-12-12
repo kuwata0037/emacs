@@ -42,7 +42,8 @@
 ;; 履歴の保存先
 (setq recentf-save-file (my/set-history "recentf"))
 
-(when (require 'recentf nil t)
+(use-package recentf
+  :config
   ;; 最近使用したファイルの表示数
   (setq recentf-max-menu-items 10)
   ;; 最近使用したファイルの保存数
@@ -59,7 +60,8 @@
 ;; save-place
 ;; @describe : 閉じる直前のカーソルの位置の履歴
 ;; --------------------------------------------------
-(when (require 'saveplace nil t)
+(use-package saveplace
+  :config
   (setq save-place-file (my/set-history "saveplace"))
   (setq-default save-place t)
   )
