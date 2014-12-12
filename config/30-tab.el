@@ -1,7 +1,8 @@
 ;; --------------------------------------------------
 ;; tabbar
 ;; --------------------------------------------------
-(when (require 'tabbar nil t)
+(use-package tabbar
+  :config
   (tabbar-mode t)
 
   ;; マウスホイール操作
@@ -136,7 +137,9 @@ mouse-3: delete other windows"
 ;; ElScreen
 ;; @refer : http://rubikitch.com/2014/09/05/elscreen/
 ;; --------------------------------------------------
-(when (require 'elscreen nil t)
+(use-package elscreen
+  :disabled t
+  :config
   ;; (setq elscreen-prefix-key (kbd "C-z"))
   (elscreen-set-prefix-key (kbd "C-o"))
 

@@ -1,7 +1,8 @@
 ;; --------------------------------------------------
 ;; expand-region
 ;; --------------------------------------------------
-(when (require 'expand-region nil t)
+(use-package expand-region
+  :config
   (global-set-key (kbd "C-;") 'er/expand-region)
   (global-set-key (kbd "C-'") 'er/contract-region)
   )

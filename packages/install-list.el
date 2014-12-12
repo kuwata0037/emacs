@@ -5,7 +5,7 @@
 (defvar my/el-get-packages
   '(
     ;; inits
-    exec-path-from-shell init-loader
+    exec-path-from-shell init-loader use-package
 
     ;; helm
     helm helm-descbinds
