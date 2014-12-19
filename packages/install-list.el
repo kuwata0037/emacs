@@ -12,13 +12,13 @@
 
     ;; undo
     point-undo undo-tree undohist
-    
+
     ;; color theme
     ujelly-theme
 
     ;; vc
     magit
-    
+
     ;; ruby
     ruby-end ruby-block inf-ruby robe-mode
 
@@ -26,8 +26,8 @@
     yaml-mode
 
     ;; highlight
-    auto-highlight-symbol
-    
+    auto-highlight-symbol highlight-symbol
+
     ;; other
     auto-complete expand-region flycheck popwin rainbow-delimiters
     quickrun smart-compile smart-newline smooth-scroll tabbar zlc
@@ -40,7 +40,7 @@
   '(
     ;; ;; other
     ;; helm
-    
+
     )
   "A list of packages to install from package repository.")
 

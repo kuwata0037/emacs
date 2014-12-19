@@ -112,14 +112,14 @@
   )
 
 
-;; ;; highlight-symbol
-;; ;; @refer : http://qiita.com/aKenjiKato/items/f465993ac8e62db69592
-;; (use-package highlight-symbol
-;;   :config
-;;   (setq highlight-symbol-colors '("DarkOrange" "DodgerBlue1" "DeepPink1")))
-;;   (global-set-key (kbd "C-]") 'highlight-symbol-at-point)
-;;   (global-set-key (kbd "C-c C-]") 'highlight-symbol-remove-all)
-;;   )
+;; highlight-symbol
+;; @refer : http://qiita.com/aKenjiKato/items/8928fe57ab1fb06b36ca
+(use-package highlight-symbol
+  :config
+  (setq highlight-symbol-colors '("DarkOrange" "DodgerBlue1" "DeepPink1"))
+  (global-set-key (kbd "C-c C-;") 'highlight-symbol-at-point)
+  (global-set-key (kbd "C-c C-'") 'highlight-symbol-remove-all)
+  )
 
 
 ;; --------------------------------------------------
