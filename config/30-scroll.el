@@ -1,6 +1,8 @@
 ;; --------------------------------------------------
 ;; smooth-scroll
 ;; --------------------------------------------------
-(when (require 'smooth-scroll nil t)
-  (smooth-scroll-mode 0)
+(use-package smooth-scroll
+  :disabled t
+  :config
+  (smooth-scroll-mode)
   )

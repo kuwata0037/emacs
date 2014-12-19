@@ -3,7 +3,8 @@
 ;; @describe : ミニバッファ補完をzshライクに
 ;; @refer : http://d.hatena.ne.jp/mooz/20101003/p1
 ;; --------------------------------------------------
-(when (require 'zlc nil t)
+(use-package zlc
+  :config
   (zlc-mode t)
   (let ((map minibuffer-local-map))
     (define-key map (kbd "C-p") 'zlc-select-previous-vertical)

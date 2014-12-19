@@ -2,7 +2,8 @@
 ;; helm
 ;; @refer : http://yoshiori.github.io/blog/2013/01/30/dot-emacs-renewal/
 ;; --------------------------------------------------
-(when (require 'helm-config nil t)
+(use-package helm-config
+  :config
   ;; 有効化
   (helm-mode t)
 

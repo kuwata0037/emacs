@@ -31,7 +31,9 @@
 
 
 ;; robe
-(when (and (require 'robe nil t) (executable-find "pry"))
+(use-package robe
+  :if (executable-find "pry")
+  :config
   (add-hook 'ruby-mode-hook 'robe-mode)
   (autoload 'robe-mode "robe" "Code navigation, documentation lookup and completion for Ruby" t nil)
   (autoload 'ac-robe-setup "ac-robe" "auto-complete robe" nil nil)
@@ -43,7 +45,8 @@
 ;; ruby-end
 ;; @describe : 括弧の自動挿入
 ;; @refer : http://blog.livedoor.jp/ooboofo3/archives/53748087.html
-(when (require 'ruby-end nil t)
+(use-package ruby-end
+  :config
   (defun my/ruby-end-hook ()
     (abbrev-mode t)
     (ruby-end-mode t))
@@ -54,7 +57,8 @@
 ;; ruby-block
 ;; @describe : endに対応する行のハイライト
 ;; @refer : http://d.hatena.ne.jp/khiker/20071130/emacs_ruby_block
-(when (require 'ruby-block nil t)
+(use-package ruby-block
+  :config
   (defun my/ruby-block-hook ()
     (ruby-block-mode t)
     (setq ruby-block-highlight-toggle t))
@@ -65,7 +69,8 @@
 ;; inf-ruby
 ;; @describe : インタラクティブRubyを利用する
 ;; @refer : https://github.com/nonsequitur/inf-ruby
-(when (require 'inf-ruby nil t)
+(use-package inf-ruby
+  :config
   (defun my/inf-ruby-hook ()
     ;; inf-ruby-mirror-mode を on に
     (inf-ruby-minor-mode)
