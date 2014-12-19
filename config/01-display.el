@@ -102,13 +102,14 @@
 ;; (set-face-background 'trailing-whitespace "#b14770")
 
 
-;; ;; カーソル位置のシンボルのハイライト
-;; ;; @refer : http://d.hatena.ne.jp/yuheiomori0718/20111222/1324562208
-;; (use-package auto-highlight-symbol
-;;   config:
-;;   (global-auto-highlight-symbol-mode t)
-;;   ;; (ahs-set-idle-interval 0.8)
-;;   )
+;; カーソル位置のシンボルのハイライト
+;; @refer : http://d.hatena.ne.jp/yuheiomori0718/20111222/1324562208
+(use-package auto-highlight-symbol
+  :disabled t
+  :config
+  (global-auto-highlight-symbol-mode t)
+  ;; (ahs-set-idle-interval 0.8)
+  )
 
 
 ;; ;; highlight-symbol

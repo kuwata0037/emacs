@@ -24,6 +24,9 @@
 
     ;; yaml
     yaml-mode
+
+    ;; highlight
+    auto-highlight-symbol
     
     ;; other
     auto-complete expand-region flycheck popwin rainbow-delimiters
