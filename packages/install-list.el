@@ -29,8 +29,9 @@
     auto-highlight-symbol highlight-symbol
 
     ;; other
-    auto-complete expand-region flycheck popwin rainbow-delimiters
-    quickrun smart-compile smart-newline smooth-scroll tabbar zlc
+    auto-complete expand-region flycheck  htmlize popwin
+    rainbow-delimiters quickrun smart-compile smart-newline
+    smooth-scroll tabbar zlc
 
     )
   "A list of packages to install from el-get at launch.")
