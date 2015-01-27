@@ -24,6 +24,17 @@
 
 
 ;; --------------------------------------------------
+;; auto-insert-mode
+;; @refer : http://d.hatena.ne.jp/yutoichinohe/20130607/1370627890
+;; --------------------------------------------------
+(use-package autoinsert
+  :config
+  (auto-insert-mode t)
+  (setq auto-insert-query nil)
+  )
+
+
+;; --------------------------------------------------
 ;; flychek
 ;; @refer : http://qiita.com/senda-akiha/items/cddb02cfdbc0c8c7bc2b
 ;; --------------------------------------------------
