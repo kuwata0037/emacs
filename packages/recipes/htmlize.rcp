@@ -1,0 +1,6 @@
+(:name htmlize
+       :type http
+       :description "http://www.emacswiki.org/emacs/Htmlize"
+       :url "https://marmalade-repo.org/packages/htmlize-1.39.el"
+       :localname "htmlize.el"
+       )
