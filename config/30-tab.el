@@ -138,7 +138,7 @@ mouse-3: delete other windows"
 ;; @refer : http://rubikitch.com/2014/09/05/elscreen/
 ;; --------------------------------------------------
 (use-package elscreen
-  :disabled t
+  :disabled
   :config
   ;; (setq elscreen-prefix-key (kbd "C-z"))
   (elscreen-set-prefix-key (kbd "C-o"))

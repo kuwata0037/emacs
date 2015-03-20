@@ -121,7 +121,7 @@
 (use-package quickrun
   :config
   (use-package popwin
-    :disabled t
+    :disabled
     :config
     (popwin-mode)
     (push '("*quickrun*") popwin:special-display-config)

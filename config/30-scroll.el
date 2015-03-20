@@ -2,7 +2,7 @@
 ;; smooth-scroll
 ;; --------------------------------------------------
 (use-package smooth-scroll
-  :disabled t
+  :disabled
   :config
   (smooth-scroll-mode)
   )
