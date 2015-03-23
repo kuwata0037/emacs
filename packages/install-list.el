@@ -25,6 +25,9 @@
     ;; yaml
     yaml-mode
 
+    ;; web
+    web-mode
+
     ;; highlight
     auto-highlight-symbol highlight-symbol
 
