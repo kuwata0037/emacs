@@ -5,6 +5,8 @@
 (setq-default tab-width 4)
 ;; インデントにタブ文字を使用しない
 (setq-default indent-tabs-mode nil)
+;; ファイルが #! から始まる場合, +x を付けて保存する
+(add-hook 'after-save-hook 'executable-make-buffer-file-executable-if-script-p)
 
 
 ;;--------------------------------------------------
