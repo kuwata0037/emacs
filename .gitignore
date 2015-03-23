@@ -1,4 +1,4 @@
-### https://raw.github.com/github/gitignore/d9cc01e935a8f0f961a3b2eed38c16d27cc07f64/Global/emacs.gitignore
+### https://raw.github.com/github/gitignore/b8da0e3a89f5d75acdb9d5fed06700bfff3695f9/Global/emacs.gitignore
 
 # -*- mode: gitignore; -*-
 *~
@@ -29,6 +29,9 @@ tramp
 
 # AUCTeX auto folder
 /auto/
+
+# cask packages
+.cask/
 
 
 ### my Emacs.gitignore
