@@ -3,7 +3,8 @@
 ;; --------------------------------------------------
 (add-to-list 'auto-mode-alist '("Capfile$" . ruby-mode))
 (add-to-list 'auto-mode-alist '("Gemfile$" . ruby-mode))
-(add-to-list 'interpreter-mode-alist '("ruby" . ruby-mode))
+(add-to-list 'interpreter-mode-alist '("ruby"  . ruby-mode))
+(add-to-list 'interpreter-mode-alist '("rbenv" . ruby-mode))
 
 ;; インデント
 (setq ruby-indent-level tab-width
