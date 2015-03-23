@@ -1,34 +1,35 @@
 ;; --------------------------------------------------
 ;; ruby
 ;; --------------------------------------------------
-(add-to-list 'auto-mode-alist '("Capfile$" . ruby-mode))
-(add-to-list 'auto-mode-alist '("Gemfile$" . ruby-mode))
-(add-to-list 'interpreter-mode-alist '("ruby"  . ruby-mode))
-(add-to-list 'interpreter-mode-alist '("rbenv" . ruby-mode))
-
-;; インデント
-(setq ruby-indent-level tab-width
-      ruby-deep-indent-paren-style nil
-      ruby-indent-tabs-mode nil
-      )
-
-
-;; 閉じ括弧をいい感じに
-;; @refer : http://www.willnet.in/13
-(defadvice ruby-indent-line (after unindent-closing-paren activate)
-  (let ((column (current-column))
-        indent offset)
-    (save-excursion
-      (back-to-indentation)
-      (let ((state (syntax-ppss)))
-        (setq offset (- column (current-column)))
-        (when (and (eq (char-after) ?\))
-                   (not (zerop (car state))))
-          (goto-char (cadr state))
-          (setq indent (current-indentation)))))
-    (when indent
-      (indent-line-to indent)
-      (when (> offset 0) (forward-char offset)))))
+;; ruby-mode
+(use-package ruby-mode
+  :mode (("Capfile$" . ruby-mode)
+         ("Gemfile$" . ruby-mode))
+  :interpreter (("ruby"  . ruby-mode)
+                ("rbenv" . ruby-mode))
+  :config
+  ;; インデント
+  (setq ruby-indent-level tab-width
+        ruby-deep-indent-paren-style nil
+        ruby-indent-tabs-mode nil
+        )
+  ;; 閉じ括弧をいい感じに
+  ;; @refer : http://www.willnet.in/13
+  (defadvice ruby-indent-line (after unindent-closing-paren activate)
+    (let ((column (current-column))
+          indent offset)
+      (save-excursion
+        (back-to-indentation)
+        (let ((state (syntax-ppss)))
+          (setq offset (- column (current-column)))
+          (when (and (eq (char-after) ?\))
+                     (not (zerop (car state))))
+            (goto-char (cadr state))
+            (setq indent (current-indentation)))))
+      (when indent
+        (indent-line-to indent)
+        (when (> offset 0) (forward-char offset)))))
+  )
 
 
 ;; robe
