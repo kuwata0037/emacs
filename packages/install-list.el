@@ -32,7 +32,7 @@
     auto-highlight-symbol highlight-symbol
 
     ;; other
-    auto-complete expand-region flycheck  htmlize popwin
+    auto-complete expand-region fold-dwim htmlize popwin
     rainbow-delimiters quickrun smart-compile smart-newline
     smooth-scroll tabbar zlc
 
