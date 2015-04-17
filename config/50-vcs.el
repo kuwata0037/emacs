@@ -11,6 +11,7 @@
 (use-package magit
   :if (executable-find "git")
   :config
+  (setq magit-last-seen-setup-instructions "1.4.0")
   ;; ;; 色の指定
   ;; (set-face-foreground 'magit-diff-add "#adff2f")
   ;; (set-face-background 'magit-diff-add "#000000")
