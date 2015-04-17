@@ -9,7 +9,7 @@
                 ("rbenv" . ruby-mode))
   :config
   ;; インデント
-  (setq ruby-indent-level tab-width
+  (setq ruby-indent-level 2
         ruby-deep-indent-paren-style nil
         ruby-indent-tabs-mode nil
         )
