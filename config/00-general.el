@@ -24,6 +24,9 @@
 ;; 画像ファイルを表示
 (auto-image-file-mode t)
 
+;; file 名補完時大文字小文字を区別しない
+(setq completion-ignore-case t)
+
 ;; ファイルを自動で再読み込み
 (global-auto-revert-mode t)
 
