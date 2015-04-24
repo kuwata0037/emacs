@@ -17,3 +17,13 @@
   ;; TAB補完時、即座に一つ目の補完候補を選択する
   (setq zlc-select-completion-immediately nil)
   )
+
+;; --------------------------------------------------
+;; open-junk-file
+;; @refer : http://ongaeshi.hatenablog.com/entry/org-and-open-junk-memo-life
+;; --------------------------------------------------
+(use-package open-junk-file
+  :config
+  (setq open-junk-file-format "/var/tmp/junk/%Y-%m%d-%H%M%S.")
+  (global-set-key (kbd "C-x j") 'open-junk-file)
+  )
