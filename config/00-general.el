@@ -24,14 +24,16 @@
 ;; 画像ファイルを表示
 (auto-image-file-mode t)
 
-;; file 名補完時大文字小文字を区別しない
-(setq completion-ignore-case t)
-
 ;; ファイルを自動で再読み込み
 (global-auto-revert-mode t)
 
-;; 大文字と小文字を区別しない
+;; 大文字と小文字の区別
+;; (setq completion-ignore-case t)
 (setq read-file-name-completion-ignore-case t)
+(setq read-buffer-completion-ignore-case t)
+(setq case-fold-search t)
+(setq isearch-case-fold-search t)
+(setq case-replace t)
 
 ;; 行の先頭でC-kを一回押すだけで行全体を消去する
 (setq kill-whole-line t)
