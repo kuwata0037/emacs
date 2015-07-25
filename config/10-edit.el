@@ -65,6 +65,7 @@
 (setq read-buffer-completion-ignore-case    t)
 (use-package helm-config
   :bind (("C-c h"   . helm-mini)
+         ("C-h b"   . helm-descbinds)
          ("C-x C-r" . helm-recentf)
          ("C-x C-b" . helm-buffers-list)
          ("M-x"     . helm-M-x)
