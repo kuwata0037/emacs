@@ -1,3 +1,9 @@
+### my Emacs.gitignore
+/.*/
+/package/el-get/
+/package/elpa/
+
+
 ### https://raw.github.com/github/gitignore/b8da0e3a89f5d75acdb9d5fed06700bfff3695f9/Global/emacs.gitignore
 
 # -*- mode: gitignore; -*-
@@ -32,8 +38,3 @@ tramp
 
 # cask packages
 .cask/
-
-
-### my Emacs.gitignore
-/.*/
-/packages/*packages/
