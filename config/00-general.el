@@ -16,7 +16,7 @@
 (global-auto-revert-mode)
 (setq inhibit-startup-screen t)
 (setq initial-scratch-message "")
-(setq visible-bell t) ; @refer : http://th.nao.ac.jp/MEMBER/zenitani/elisp-j.html#bell
+(setq ring-bell-function 'ignore) ; @refer : http://th.nao.ac.jp/MEMBER/zenitani/elisp-j.html#bell
 (use-package uniquify
   :config (setq uniquify-buffer-name-style 'post-forward-angle-brackets))
 
