@@ -46,6 +46,7 @@
     volatile-highlights
     web-mode
     yaml-mode
+    yatex
     zlc)
   "A list of packages to install from el-get at launch.")
 

@@ -99,6 +99,82 @@
   :config (define-key yaml-mode-map (kbd "C-m") 'newline-and-indent))
 
 
+;;; Latex
+(use-package yatex
+  :mode (("\\.tex$" . yatex-mode)
+         ("\\.ltx$" . yatex-mode)
+         ("\\.cls$" . yatex-mode)
+         ("\\.sty$" . yatex-mode)
+         ("\\.clo$" . yatex-mode)
+         ("\\.bbl$" . yatex-mode))
+  :config
+  (setq YaTeX-inhibit-prefix-letter t)  ; "C-c" から "C-c C-" へ変更
+  (setq YaTeX-use-LaTeX2e t)
+  (setq YaTeX-use-AMS-LaTeX t)
+  (setq YaTeX-kanji-code 4)    ; 文章作成時の漢字コードを utf-8 にする
+  (setq YaTeX-latex-message-code 'utf-8)
+  ;; (add-hook 'yatex-mode-hook '(lambda ()(setq auto-fill-function nill))) ; 自動改行を抑制
+  (setq YaTeX-help-file
+        (expand-file-name (concat user-emacs-directory "package/el-get/yatex/help/YATEXHLP.jp"))) ; help ファイル設定
+  ;; タイプセット
+  (setq tex-command "platex")
+  (setq dviprint-command-format "var=`echo %s | sed -e \"s/\.[^.]*$/.dvi/\"` && dvipdfmx $var")
+  (setq dvi2-command "open -a Skim")
+  (setq bibtex-command "pbibtex")
+  ;; reftex-mode
+  (add-hook 'latex-mode-hook 'turn-on-reftex) ; with Emacs latex mode
+  (add-hook 'Latex-mode-hook 'turn-on-reftex) ; with AUCTeX LaTeX mode
+  (add-hook 'yatex-mode-hook                  ; with YaTeX mode
+          #'(lambda ()
+              (reftex-mode t)
+              (define-key reftex-mode-map
+                (concat YaTeX-prefix ">") 'YaTeX-comment-region)
+              (define-key reftex-mode-map
+                (concat YaTeX-prefix "<") 'YaTeX-uncomment-region)))
+  ;; 数式モードの ";" 補間の強化
+  (setq YaTeX-math-sign-alist-private
+        '(("q"         "quad"          "__")
+          ("qq"        "qquad"         "____")
+          ("ls"        "varlimsup"     "___\nlim")
+          ("li"        "varliminf"     "lim\n---")
+          ("il"        "varinjlim"     "lim\n-->")
+          ("st"        "text{ s.~t. }" "s.t.")
+          ("bigop"     "bigoplus"      "_\n(+)~")
+          ("bigot"     "bigotimes"     "_\n(x)\n ~")
+          ("pl"        "varprojlim"    "lim\n<--")
+          ))
+  ;; 数式モードの "," 補間
+  (setq YaTeX-math-funcs-list
+        '(("s"         "sin"           "sin")
+		  ("c"         "cos"           "cos")
+          ("t"         "tan"           "tan")
+          ("hs"        "sinh"          "sinh")
+          ("hc"        "cosh"          "cosh")
+          ("ht"        "tanh"          "tanh")
+          ("S"         "arcsin"        "arcsin")
+          ("C"         "arccos"        "arccos")
+          ("T"         "arctan"        "arctan")
+          ("se"        "sec"           "sec")
+          ("cs"        "csc"           "csc")
+          ("cot"       "cot"           "cot")
+          ("l"         "ln"            "ln")
+          ("L"         "log"           "log")
+          ("e"         "exp"           "exp")
+          ("M"         "max"           "max")
+          ("m"         "min"           "min")
+          ("su"        "sup"           "sup")
+          ("in"        "inf"           "inf")
+          ("di"        "dim"           "dim")
+          ("de"        "det"           "det")
+          ("i"         "imath"         "i")
+          ("j"         "jmath"         "j")
+          ("I"         "Im"            "Im")
+          ("R"         "Re"            "Re")
+          ))
+  (setq YaTeX-math-key-list-private
+        '(("," . YaTeX-math-funcs-list))))
+
+
 ;;; Org
 (use-package org-mode
   :commands org-mode)
