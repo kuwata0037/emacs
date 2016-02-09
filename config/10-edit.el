@@ -98,7 +98,7 @@
   (ac-config-default)
   (setq ac-comphist-file (my/set-history "ac-comphist.dat"))
   (setq ac-use-menu-map t)
-  (setq ac-delay 0.0)
+  (setq ac-delay 0.5)
   (setq ac-auto-show-menu 0.3))
 
 ;; auto insert
